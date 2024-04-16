@@ -1,0 +1,49 @@
+import javax.swing.JOptionPane;
+
+public class Aula07 {
+    public static void main(String[] args) {
+        ClasseAluno classealuno = new ClasseAluno();
+        ClasseProfessor classeprofessor = new ClasseProfessor();
+        
+        String Usuario = JOptionPane.showInputDialog("Digite se você é professor ou aluno:");
+        if(Usuario.equalsIgnoreCase("ALuno")){
+            classealuno.CadastroAluno(Usuario);
+        }else if(Usuario.equalsIgnoreCase("Professor")){
+            classeprofessor.CadastroProfessor(Usuario);
+        }else {
+            JOptionPane.showMessageDialog(null,"Opção invalida");
+        }
+    }
+}
+public class ClasseAluno {
+    private String Nome;
+    private String Email;
+    private String Telefone;
+    private int RA;
+    private int Idade;
+    public void CadastroAluno(String TUsuario) {
+       if (TUsuario.equalsIgnoreCase("Aluno")){
+           
+            setNome(JOptionPane.showInputDialog("Digite o seu nome:"));
+            setRA(Integer.parseInt(JOptionPane.showInputDialog("Digite o seu RA:")));
+            setIdade(Integer.parseInt(JOptionPane.showInputDialog("Digite a sua idade:")));
+            setEmail(JOptionPane.showInputDialog("Digite o seu E-mail:"));
+            setTelefone(JOptionPane.showInputDialog("Digite o seu telefone:"));
+           JOptionPane.showMessageDialog(null,"Bem-vindo "+TUsuario+" "+getNome());
+       }
+    }
+}
+public class ClasseProfessor {
+    private String Nome;
+    private String Email;
+    private String Telefone;
+    private int Idade;
+    public void CadastroProfessor(String TUsuario){
+       if (TUsuario.equalsIgnoreCase("Professor")){
+            setNome(JOptionPane.showInputDialog("Digite o seu nome:"));
+            setIdade(Integer.parseInt(JOptionPane.showInputDialog("Digite a sua idade:")));
+            setEmail(JOptionPane.showInputDialog("Digite o seu E-mail:"));
+           JOptionPane.showMessageDialog(null,"Bem-vindo "+TUsuario+" "+getNome());
+       }
+    }
+}
